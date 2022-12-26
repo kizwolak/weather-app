@@ -2,13 +2,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 .main {
     width: 55em;
     height: 30em;
     border: 1px solid black;
+    border-radius: 4%;
     margin: 10em auto;
+}
+
+.locAndTemp {
+    display: flex;
+    align-items: center;
+    gap: 10em;
+    padding-left: 10em;
 }
 
 .header {
@@ -17,4 +26,12 @@
     border-width: 0 0 1px 0;
     border-color: black;
     border-style: solid;
+}
+
+h1 {
+    font-size: 8em;
+}
+
+h2 {
+    font-size: 2em;
 }
