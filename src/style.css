@@ -5,11 +5,32 @@
     font-family: 'Roboto', sans-serif;
 }
 
+#searchIcon {
+width: 2.5em;
+height: 2.5em;
+margin: 1.5em 0 0 2.5em ;
+}
+
+.iconSpin {
+    animation-name: spin;
+    animation-duration: 200ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
 .main {
     width: 55em;
     height: 30em;
     border: 1px solid black;
-    border-radius: 4%;
     margin: 10em auto;
 }
 
@@ -26,6 +47,10 @@
     border-width: 0 0 1px 0;
     border-color: black;
     border-style: solid;
+}
+
+.localTime {
+    padding-left: 5em;
 }
 
 h1 {
