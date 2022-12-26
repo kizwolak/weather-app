@@ -7,9 +7,10 @@ const temperature = document.querySelector('.temperature');
 const location = document.querySelector('.location');
 const searchIcon = document.querySelector('#searchIcon');
 const input = document.querySelector('#input');
+const localTime = document.querySelector('.localTime');
 
-async function fetchData() {
-    const geo = await fetch('http://api.openweathermap.org/geo/1.0/direct?q=New York&appid=6167a5f6c02b8d41134a2bd1b106d82a');
+async function fetchData(cityInput) {
+    const geo = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityInput}&appid=6167a5f6c02b8d41134a2bd1b106d82a`);
     const georesults = await geo.json();
     console.log(georesults);
 
@@ -35,7 +36,7 @@ async function fetchData() {
     getDate(lat1, long1);
 }
 
-fetchData();
+fetchData('Buenos Aires');
 
 let i = 0;
 searchIcon.addEventListener('mouseenter', (e) => {
@@ -59,5 +60,18 @@ searchIcon.addEventListener('click', () => {
     } else {
         input.classList = '';
         input.classList = 'active';
+    }
+});
+
+input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        temperature.innerHTML = '';
+        location.innerHTML = '';
+        localTime.innerHTML = '';
+        const searchInput = input.value;
+        fetchData(searchInput);
+        input.value = '';
+        input.classList = '';
+        input.classList = 'hidden';   
     }
 });
