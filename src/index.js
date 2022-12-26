@@ -5,7 +5,6 @@ import getDate from './getDate';
 
 const temperature = document.querySelector('.temperature');
 const location = document.querySelector('.location');
-const time = document.querySelector('.localTime');
 const searchIcon = document.querySelector('#searchIcon');
 
 async function fetchData() {
@@ -35,15 +34,22 @@ async function fetchData() {
     getDate(lat1, long1);
 }
 
-
 fetchData();
 
+let i = 0;
 searchIcon.addEventListener('mouseenter', (e) => {
+    i += 1;
     e.target.classList = 'iconSpin';
     setTimeout(() => {
         e.target.classList = '';
     }, 200);
     if (i === 10) {
-        e.target.insertBefore();
+        const surprise = document.createElement('p');
+        surprise.textContent = 'STOP! I\'M GETTING DIZZY!!';
+        e.target.parentElement.insertBefore(surprise, e.target);
     } 
+});
+
+searchIcon.addEventListener('click', () => {
+
 });
