@@ -11,6 +11,68 @@ height: 2.5em;
 margin: 1.5em 0 0 2.5em ;
 }
 
+.searchBar {
+    display: flex;
+    align-items: center;
+    height: fit-content;
+}
+
+#input {
+    margin-top: 10%;
+    transform: translateX(-20em);
+    opacity: 0;
+    display: none;
+}
+
+#input.active {
+    display: block;
+    margin-top: 10%;
+    transform: translateX(0em);
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.5s;
+}
+
+#input.hidden {
+    display: block;
+    margin-top: 10%;
+    transform: translateX(-20em);
+    opacity: 0;
+	animation-name: fadeOutOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.5s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+		transform: translateX(-20em);
+	}
+    70% {
+        opacity: 0;
+    }
+	100% {
+		transform: translateX(0em);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutOpacity {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    30% {
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(-20em);
+    }
+}
+
 .iconSpin {
     animation-name: spin;
     animation-duration: 200ms;

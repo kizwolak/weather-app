@@ -6,6 +6,7 @@ import getDate from './getDate';
 const temperature = document.querySelector('.temperature');
 const location = document.querySelector('.location');
 const searchIcon = document.querySelector('#searchIcon');
+const input = document.querySelector('#input');
 
 async function fetchData() {
     const geo = await fetch('http://api.openweathermap.org/geo/1.0/direct?q=New York&appid=6167a5f6c02b8d41134a2bd1b106d82a');
@@ -47,9 +48,16 @@ searchIcon.addEventListener('mouseenter', (e) => {
         const surprise = document.createElement('p');
         surprise.textContent = 'STOP! I\'M GETTING DIZZY!!';
         e.target.parentElement.insertBefore(surprise, e.target);
+        // TODO: reset count if the mouse did not move the magnifying glass for some time
     } 
 });
 
 searchIcon.addEventListener('click', () => {
-
+    if (input.classList.contains('active')) {
+        input.classList = '';
+        input.classList = 'hidden';   
+    } else {
+        input.classList = '';
+        input.classList = 'active';
+    }
 });
