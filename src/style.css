@@ -101,6 +101,11 @@ margin: 1.5em 0 0 2.5em ;
     align-items: center;
     gap: 10em;
     padding-left: 10em;
+    height: 85%;
+}
+
+.temperature {
+
 }
 
 .header {
