@@ -14,7 +14,7 @@ c.addEventListener('click', () => {
     if (!(tempH1.textContent.includes('C'))) {
         const farenheitTemp = tempH1.textContent.split('°');
         console.log(farenheitTemp[0]);
-        const result = (farenheitTemp[0] -32) * (5/9);
+        const result = Math.round((farenheitTemp[0] -32) * (5/9));
         tempH1.textContent = `${result  }°C` 
     }
 });
@@ -26,6 +26,12 @@ f.addEventListener('click', () => {
         console.log(celsiusTemp[0]);
         const result = (celsiusTemp[0] * (9/5)) + 32;
         console.log(result);
-        tempH1.textContent = `${result  }°F` 
+        const resultToString = result.toString();
+        if (resultToString.includes('.')) {
+            const splitResult = resultToString.split('.');
+            tempH1.textContent = `${splitResult[0]  }°F` 
+        } else {
+            tempH1.textContent = `${result  }°F` 
+        }
     }
 })
