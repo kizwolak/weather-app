@@ -1,5 +1,13 @@
+import fetchData from "./fetchData";
+
 export default function searchIconLogic() {
     let i = 0;
+    const searchIcon = document.querySelector('#searchIcon');
+    const input = document.querySelector('#input');
+    const temperature = document.querySelector('.temperature');
+    const location = document.querySelector('.location');
+    const time = document.querySelector('.localTime');
+
     searchIcon.addEventListener('mouseenter', (e) => {
         i += 1;
         e.target.classList = 'iconSpin';
@@ -25,6 +33,7 @@ export default function searchIconLogic() {
         } else {
             input.classList = '';
             input.classList = 'active';
+            input.focus();
         }
     });
     
@@ -32,7 +41,7 @@ export default function searchIconLogic() {
         if (e.key === 'Enter') {
             temperature.innerHTML = '';
             location.innerHTML = '';
-            localTime.innerHTML = '';
+            time.innerHTML = '';
             const searchInput = input.value;
             fetchData(searchInput);
             input.value = '';

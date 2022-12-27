@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    cursor: default;
 }
 
 #searchIcon {
@@ -99,13 +100,38 @@ margin: 1.5em 0 0 2.5em ;
 .locAndTemp {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10em;
     padding-left: 10em;
     height: 85%;
 }
 
-.temperature {
+.units {
+    display: flex;
+    gap: 3em;
+    font-size: 1.3em;
+    text-decoration: underline;
+}
 
+.units>*:hover {
+    color: burlywood;
+    text-decoration: underline;
+}
+
+.units>*:active {
+    color: greenyellow;
+    text-decoration: underline;
+}
+
+.temp {
+    display: flex;
+}
+
+.temperature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .header {
@@ -117,7 +143,7 @@ margin: 1.5em 0 0 2.5em ;
 }
 
 .localTime {
-    padding-left: 5em;
+    padding-left: 12em;
 }
 
 h1 {
