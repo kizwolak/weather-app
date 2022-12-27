@@ -127,6 +127,11 @@ margin: 1.5em 0 0 2.5em ;
     display: flex;
 }
 
+.temp>img {
+    width: 8em !important;
+    height: 8em !important;
+}
+
 .temperature {
     display: flex;
     flex-direction: column;
@@ -143,7 +148,7 @@ margin: 1.5em 0 0 2.5em ;
 }
 
 .localTime {
-    padding-left: 12em;
+    padding-left: 6em;
 }
 
 h1 {

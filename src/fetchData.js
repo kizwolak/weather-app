@@ -4,6 +4,9 @@ import capitalizeFirstLetter from "./capitalise";
 export default async function fetchData(cityInput) {
     const temperature = document.querySelector('.temperature');
     const location = document.querySelector('.location');
+    const tempAndIcon = document.querySelector('.tempAndIcon');
+    const description = document.querySelector('.description');
+    const tempDOM = document.querySelector('.temp');
     const geo = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityInput}&appid=6167a5f6c02b8d41134a2bd1b106d82a`);
     const georesults = await geo.json();
     console.log(georesults);
@@ -15,16 +18,16 @@ export default async function fetchData(cityInput) {
     const awaitResult = await result.json();
     console.log(awaitResult);
 
-    const tempAndIcon = document.querySelector('.tempAndIcon');
-    const tempDOM = document.querySelector('.temp');
+
     const temp = document.createElement('h1');
     temp.classList = 'tempH1';
     const tempDesc = document.createElement('h2');
+    tempDesc.classList = 'tempDesc';
     temp.textContent = `${Math.round(awaitResult.main.temp - 273.15)}°C`
     tempDesc.textContent = capitalizeFirstLetter(awaitResult.weather[0].description);
     console.log(temp);
     tempDOM.appendChild(temp);
-    tempAndIcon.appendChild(tempDesc);
+    description.appendChild(tempDesc);
 
 
     const locationText = document.createElement('h2');

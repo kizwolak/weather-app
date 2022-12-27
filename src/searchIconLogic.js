@@ -7,6 +7,12 @@ export default function searchIconLogic() {
     const temperature = document.querySelector('.temperature');
     const location = document.querySelector('.location');
     const time = document.querySelector('.localTime');
+    const tempAndIcon = document.querySelector('.tempAndIcon');
+    const tempDOM = document.querySelector('.temp');
+    const tempDesc = document.querySelector('.tempDesc');
+    const description = document.querySelector('.description');
+
+    console.log(tempDesc);
 
     searchIcon.addEventListener('mouseenter', (e) => {
         i += 1;
@@ -39,9 +45,10 @@ export default function searchIconLogic() {
     
     input.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
-            temperature.innerHTML = '';
+            tempDOM.innerHTML = '';
             location.innerHTML = '';
             time.innerHTML = '';
+            description.innerHTML = '';
             const searchInput = input.value;
             fetchData(searchInput);
             input.value = '';
