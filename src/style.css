@@ -158,3 +158,15 @@ h1 {
 h2 {
     font-size: 2em;
 }
+
+.graphics {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.graphicsGif {
+    height: 100%;
+    width: 20em;
+}

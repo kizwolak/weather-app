@@ -4,15 +4,10 @@ export default function searchIconLogic() {
     let i = 0;
     const searchIcon = document.querySelector('#searchIcon');
     const input = document.querySelector('#input');
-    const temperature = document.querySelector('.temperature');
     const location = document.querySelector('.location');
     const time = document.querySelector('.localTime');
-    const tempAndIcon = document.querySelector('.tempAndIcon');
     const tempDOM = document.querySelector('.temp');
-    const tempDesc = document.querySelector('.tempDesc');
     const description = document.querySelector('.description');
-
-    console.log(tempDesc);
 
     searchIcon.addEventListener('mouseenter', (e) => {
         i += 1;

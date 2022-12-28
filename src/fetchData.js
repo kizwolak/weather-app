@@ -1,22 +1,20 @@
 import getDate from "./getDate";
 import capitalizeFirstLetter from "./capitalise";
+import getBg from "./getBg";
 
 export default async function fetchData(cityInput) {
-    const temperature = document.querySelector('.temperature');
+    const main = document.querySelector('.main');
     const location = document.querySelector('.location');
-    const tempAndIcon = document.querySelector('.tempAndIcon');
     const description = document.querySelector('.description');
     const tempDOM = document.querySelector('.temp');
     const geo = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityInput}&appid=6167a5f6c02b8d41134a2bd1b106d82a`);
     const georesults = await geo.json();
-    console.log(georesults);
 
     const lat1 = georesults[0].lat;
     const long1 = georesults[0].lon;
 
     const result = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat1}&lon=${long1}&appid=6167a5f6c02b8d41134a2bd1b106d82a`);
     const awaitResult = await result.json();
-    console.log(awaitResult);
 
 
     const temp = document.createElement('h1');
@@ -25,7 +23,6 @@ export default async function fetchData(cityInput) {
     tempDesc.classList = 'tempDesc';
     temp.textContent = `${Math.round(awaitResult.main.temp - 273.15)}°C`
     tempDesc.textContent = capitalizeFirstLetter(awaitResult.weather[0].description);
-    console.log(temp);
     tempDOM.appendChild(temp);
     description.appendChild(tempDesc);
 
@@ -38,9 +35,19 @@ export default async function fetchData(cityInput) {
 
     const icon = document.createElement('img');
     const iconName = awaitResult.weather[0].icon;
-    console.log(iconName);
     icon.src = `https://openweathermap.org/img/w/${iconName}.png`;
     icon.style.width = '0.8em';
     icon.style.height = '0.8em';
     tempDOM.appendChild(icon);
+
+    if (iconName.includes('d')) {
+        main.style.backgroundColor = 'orange';
+        main.style.color = 'black';
+    }
+    if (iconName.includes('n')) {
+        main.style.backgroundColor = '#3a2b59';
+        main.style.color = 'white';
+    }
+
+    getBg(cityInput);
 }
