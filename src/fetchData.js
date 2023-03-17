@@ -55,3 +55,5 @@ export default async function fetchData(cityInput) {
 
   getBg(cityInput);
 }
+
+// comment to push changes
