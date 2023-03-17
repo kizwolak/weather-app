@@ -1,9 +1,17 @@
+import { createApi } from "unsplash-js";
+
 export default function getBg(cityInput) {
-    fetch(`https://api.giphy.com/v1/gifs/translate?api_key=K2GD877H25o7bx3iLCx7LrOekHDAHuuY&s=${cityInput}`, {mode: 'cors'})
-.then ((response) => response.json())
-.then ((response) => {
-    document.body.style.backgroundImage = `url(${response.data.images.original.url})`;
-    document.body.style.backgroundRepeat = 'no-repeat';
-    document.body.style.backgroundSize = 'cover';
-})
-};
+  const unsplash = createApi({
+    accessKey: "qXXzrHNDEgE37EB4I_EXSp-kboWkltOK791dyke80bc",
+  });
+
+  unsplash.search.getPhotos({ query: cityInput }).then((response) => {
+    console.log(response);
+    const photo = response.response.results[0];
+    const imageUrl = photo.urls.regular;
+    document.body.style.backgroundImage = `url(${imageUrl})`;
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
+  });
+}
