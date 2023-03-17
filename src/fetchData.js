@@ -7,9 +7,16 @@ export default async function fetchData(cityInput) {
   const location = document.querySelector(".location");
   const description = document.querySelector(".description");
   const tempDOM = document.querySelector(".temp");
+  const geo = await fetch(
+    `https://api.openweathermap.org/geo/1.0/direct?q=${cityInput}&appid=6167a5f6c02b8d41134a2bd1b106d82a`
+  );
+  const georesults = await geo.json();
+
+  const lat1 = georesults[0].lat;
+  const long1 = georesults[0].lon;
 
   const result = await fetch(
-    `https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=6167a5f6c02b8d41134a2bd1b106d82a`
+    `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=6167a5f6c02b8d41134a2bd1b106d82a`
   );
   const awaitResult = await result.json();
 
