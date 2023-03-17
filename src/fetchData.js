@@ -9,7 +9,7 @@ export default async function fetchData(cityInput) {
   const tempDOM = document.querySelector(".temp");
 
   const result = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=6167a5f6c02b8d41134a2bd1b106d82a`
+    `http://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=6167a5f6c02b8d41134a2bd1b106d82a`
   );
   const awaitResult = await result.json();
 
